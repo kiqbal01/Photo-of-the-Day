@@ -17,18 +17,16 @@ struct ImageSearchView: View {
             List{
             
                 ForEach(viewModel.searchResults, id:\.self){ result in
-                    
+
                     Section(header: Text("Results")) {
                         ForEach(result.collection?.items ?? [], id: \.self) { item in
                             ForEach(item.data ?? [], id: \.self) { datum in
                                 VStack{
                                     Text(datum.title ?? "Unknown Title")
                                         .fontWeight(.bold)
-                                    Text(datum.nasaID ?? "Unknown ID")
                                     Spacer()
                                     Text(datum.description ?? "Unknown Title")
                                  
-                                    
                                 }
                                 
                                 

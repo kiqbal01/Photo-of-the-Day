@@ -11,10 +11,11 @@ extension ImageSearchView {
     @MainActor class ImageSearchViewModel: ObservableObject {
         @Published var searchResults = [Welcome]()
         
+        
         func loadViews(searchTerm: String?) async{
             do{
+
                 searchResults = try await NetworkingService().getRequest(api: API_SEARCH, endpoint: "/search", filter: "q", obj: searchTerm!)
-                
                 
             }catch {
                 switch error {

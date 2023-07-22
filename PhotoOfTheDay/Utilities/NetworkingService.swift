@@ -45,11 +45,10 @@ class NetworkingService{
             let string = String(data: data, encoding: .utf8)
             let decoder = JSONDecoder()
             let result = try decoder.decode(T.self, from: data)
-            print(result)
             results.append(result)
             
-            print("The URL Is: \(String(describing: string))")
-            print("The Result Is: \(results)")
+       print("The URL Is: \(String(describing: string))")
+       print("The Result Is: \(results)")
         
             
             return results

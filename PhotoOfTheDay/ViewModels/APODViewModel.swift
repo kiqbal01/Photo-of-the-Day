@@ -14,6 +14,7 @@ extension APODView {
         @Published var newImage: [ImageOfDay] = []
         @Published var selectDate: String = ""
         @Published var myDate = Date()
+ 
         
         var formattedDate: String {
                 let dateFormatter = DateFormatter()
@@ -25,7 +26,7 @@ extension APODView {
             do{
          
                 newImage = try await NetworkingService().getRequest(api: API_APOD, endpoint: "/planetary/apod", filter: "date", queryItem: ["api_key": API_KEY], obj: date!)
-                
+              
                 
             }catch NetworkingError.invalidURL{
                 print("invalid URL")
